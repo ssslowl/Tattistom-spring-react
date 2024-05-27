@@ -1,0 +1,78 @@
+/* AddPatients.css */
+
+.form-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+}
+
+h2 {
+  color: #ff7043;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group input[type="email"],
+.input-group select {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row .input-group {
+  width: 48%;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #ff5722;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .row .input-group {
+    width: 100%;
+  }
+}
