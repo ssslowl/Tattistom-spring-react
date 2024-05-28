@@ -5,7 +5,7 @@ import lombok.*;
 
 
 @Entity
-@Cabinet(name = "PATIENTS")
+@Table  (name = "PATIENTS")
 @Getter
 @Setter
 @NoArgsConstructor
