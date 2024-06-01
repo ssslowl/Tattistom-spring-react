@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const UserList = () => {
   const [patients, setPatients] = useState([]);
@@ -16,6 +17,12 @@ const UserList = () => {
     const result = await axios.get("http://localhost:8080/patients", {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}});
     setPatients(result.data);
   };
+
+  const deletePatient = async (id) => {
+    await axios.delete(`http://localhost:8080/patients/${id}`, {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}});
+    setPatients(patients.filter(patient => patient.id !== id));
+  };
+
   const [modalOpened, setModalOpened] = useState(false);
 
   const openModal = () => setModalOpened(true);
@@ -32,10 +39,7 @@ const UserList = () => {
       >
         Добавить пациента
       </Link>
-
-
-
-
+      
 
       <div className="table-container">
         <table className="styled-table">
@@ -47,6 +51,7 @@ const UserList = () => {
               <th>Возраст</th>
               <th>Номер телефона</th>
               <th>Пол</th>
+              <th>редактировать</th>
             </tr>
           </thead>
           <tbody>
@@ -59,6 +64,10 @@ const UserList = () => {
                   <td>{val.age}</td>
                   <td>{val.phoneNumber}</td>
                   <td>{val.gender}</td>
+                  <td style={{display: "flex"}}>
+                    <Link to={`/EditPatients/${val.id}`}><EditIcon/></Link>
+                    <Link onClick={() => deletePatient(val.id)}><DeleteIcon/></Link>
+                  </td>
                 </tr>
               );
             })}

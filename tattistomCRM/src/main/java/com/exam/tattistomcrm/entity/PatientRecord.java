@@ -3,6 +3,10 @@ package com.exam.tattistomcrm.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "PATIENT_RECORDS")
@@ -21,7 +25,7 @@ public class PatientRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Patient patientId;
+    private Patient patient;
     @ManyToOne(fetch = FetchType.LAZY)
     private User doctor;
     @Column
@@ -33,8 +37,8 @@ public class PatientRecord {
     @Enumerated(EnumType.STRING)
     @Column(name = "cabinet", nullable = false)
     private Cabinet cabinet;
-    @Column
-    private String treatment;
+    @ManyToMany
+    private List<Treatment> treatments;
 
 }
 

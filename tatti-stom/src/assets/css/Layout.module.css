@@ -14,5 +14,7 @@
 }
 
 .content{
+
+    padding: 25px;
     flex: 85%;
 }

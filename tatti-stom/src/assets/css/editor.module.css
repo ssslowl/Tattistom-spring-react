@@ -1,0 +1,20 @@
+.editor{
+    width: fit-content;
+    height: auto;
+    padding: 10px 30px;
+
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+.datePicker{
+    width: 45%;
+}
+
+.provider{
+    display: flex;
+    justify-content: space-between;
+}

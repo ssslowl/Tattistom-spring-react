@@ -4,15 +4,19 @@ import com.exam.tattistomcrm.entity.Role;
 import com.exam.tattistomcrm.entity.User;
 import com.exam.tattistomcrm.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@RequiredArgsConstructor
 public class UserService {
-    private final UserRepository repository;
+
+    @Autowired
+    private UserRepository repository;
 
     /**
      * Сохранение пользователя
@@ -75,6 +79,11 @@ public class UserService {
         return getByUsername(username);
     }
 
+    public List<User> getUsers(){
+        return repository.findAll();
+    }
+
+    @Deprecated
     public void getAdmin() {
         var user = getCurrentUser();
         user.setRole(Role.ROLE_ADMIN);

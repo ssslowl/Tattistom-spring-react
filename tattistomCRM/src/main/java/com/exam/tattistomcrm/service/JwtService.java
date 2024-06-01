@@ -16,11 +16,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+
+
 @Service
 public class JwtService {
 
     @Value("53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855")
     private String jwtSigningKey;
+
+
+
 
     /**
      * Извлечение имени пользователя из токена
