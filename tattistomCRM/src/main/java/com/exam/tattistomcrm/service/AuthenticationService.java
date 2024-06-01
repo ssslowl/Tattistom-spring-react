@@ -19,6 +19,8 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
+
+
     /**
      * Регистрация пользователя
      *
@@ -57,6 +59,7 @@ public class AuthenticationService {
                 .loadUserByUsername(request.getUsername());
 
         var jwt = jwtService.generateToken(user);
+
         return new JwtAuthenticationResponse(jwt);
     }
 }

@@ -23,6 +23,20 @@ public class User implements UserDetails {
     @SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_seq", allocationSize = 1)
     private Long id;
 
+
+
+    @Column
+    private String name;
+
+    @Column
+    private String lastname;
+
+    @Column
+    private String age;
+
+    @Column
+    private String specialization;
+
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
