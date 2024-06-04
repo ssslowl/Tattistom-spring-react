@@ -1,5 +1,7 @@
 package com.exam.tattistomcrm.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,21 +26,21 @@ public class PatientRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Patient patient;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User doctor;
     @Column
-    private String date;
+    private String VisitStart;
     @Column
-    private String time;
+    private String VisitEnd;
+    @Column
+    private Boolean isVisited;
     @Column
     private String description;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "cabinet", nullable = false)
-    private Cabinet cabinet;
     @ManyToMany
     private List<Treatment> treatments;
+
 
 }
 

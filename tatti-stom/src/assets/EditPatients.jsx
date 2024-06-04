@@ -16,6 +16,9 @@ const EditPatient = () => {
     getPatientById();
   }, []);
 
+
+  useEffect(() =>{}, [firstName])
+
   const getPatientById = async () => {
     const result = await axios.get(`http://localhost:8080/getPatient/${id}`, 
     {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}});
